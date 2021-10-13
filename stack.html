@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html> <head>
+    
+    <title>Shashi's  stack</title>
+    <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: green;
+  }
+
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: orange;
+	  }
+	}
+</style></head>
+
+
+<body>
+    <h2>Shashidhar Reddy Nagireddy builds a stack</h2>
+    
+    <div class="flex-container" id="target">
+        <div class="stack">item 1</div>   
+        <div class="stack">item 2</div>  
+        <div class="stack">item 3</div>  
+    </div><br>
+    <p>  Press the button to create an new element of type div and then add it to the container.</p>
+	<input id="inputElement" type="text"><br><br><button onclick="makeNewDiv()">Push value</button>
+    <button onclick="popItem()">Pop</button>
+    <button onclick="zap()">Zap values</button>
+	
+	
+</body>
+<script>
+	function makeNewDiv(){
+	
+		let b = document.createElement("div")
+        let input = document.getElementById("inputElement")
+		b.innerHTML = input.value
+		b.className = "stack"
+
+	
+		document.getElementById('target').appendChild(b)
+	}
+
+    function popItem(){
+        var a = document.getElementsByClassName("stack")
+        var length = a.length
+        if(length>0)
+        a[length-1].remove()
+    }
+
+    function zap(){
+        var a = document.getElementsByClassName("stack")
+        let input = document.getElementById("inputElement").value
+        if(a!= undefined && a.length >0){
+            for(let index=0; index<a.length; index++){
+                if(a[index].innerHTML == input){
+                    var removeVar = a[index].innerHTML
+                    a[index].remove()
+                    console.log(removeVar)
+                    index--
+                }
+            }
+        }
+    }
+</script>
+</html>	
