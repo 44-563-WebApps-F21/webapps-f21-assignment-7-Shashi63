@@ -27,6 +27,10 @@
       }
     
       function startTime() {
+        let min = 2
+        let max = 10
+        countdown = Math.floor(Math.random())
+
         for(let i=0; i<4; i++){
             setTimeout( ()=>{
                 document.getElementById("countdown").innerHTML = "Count: " + i
@@ -34,7 +38,7 @@
         }
         setTimeout(()=>{
             checkMyTime()
-        }, 3000)
+        }, countdown*1000)
       }
     
       function checkMyTime(){
